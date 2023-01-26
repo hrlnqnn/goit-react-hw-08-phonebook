@@ -1,0 +1,15 @@
+.button {
+    width: 100px;
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lable {
+    display: flex;
+    flex-direction: column;
+}
