@@ -39,6 +39,7 @@ export const { addContact, removeContact, setFilterValue } =
 
 const persistConfig = {
     key: 'contacts',
+    blacklist: 'filter',
     storage,
 };
 
