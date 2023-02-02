@@ -1,8 +1,8 @@
 import css from './ContactForm.module.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/Contacts.slice';
-import { nanoid } from 'nanoid';
+import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 
 export const ContactForm = () => {
     const [contact, setContact] = useState({
@@ -11,7 +11,7 @@ export const ContactForm = () => {
     });
 
     const dispatch = useDispatch();
-    const contacts = useSelector(state => state.phonebook.contacts);
+    const contacts = useSelector(selectContacts);
 
     const onInputChange = event => {
         const { name, value } = event.currentTarget;
@@ -25,7 +25,6 @@ export const ContactForm = () => {
         if (!contactName.includes(contact.name)) {
             dispatch(
                 addContact({
-                    id: nanoid(),
                     name: contact.name,
                     number: contact.number,
                 })
