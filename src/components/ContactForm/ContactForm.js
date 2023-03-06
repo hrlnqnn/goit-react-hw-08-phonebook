@@ -21,8 +21,8 @@ export const ContactForm = () => {
     const onSubmit = event => {
         event.preventDefault();
 
-        const contactName = contacts.map(contact => contact.name);
-        if (!contactName.includes(contact.name)) {
+        const foundContact = contacts.find(({ name }) => name.toLowerCase() === contact.name.toLocaleLowerCase());
+        if (!foundContact) {
             dispatch(
                 addContact({
                     name: contact.name,
